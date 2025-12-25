@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 220 14% 96%;
+    --foreground: 220 13% 18%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 18%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 18%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 90%;
+    --secondary-foreground: 220 13% 18%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 217 91% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 87%;
+    --input: 220 13% 87%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.5rem;
+
+    /* Custom design tokens */
+    --toolbar-bg: 220 14% 20%;
+    --toolbar-foreground: 220 14% 90%;
+    --toolbar-hover: 220 14% 30%;
+    --toolbar-active: 217 91% 50%;
+    
+    --panel-bg: 0 0% 100%;
+    --panel-border: 220 13% 90%;
+    
+    --canvas-bg: 220 14% 92%;
+    --design-zone: 217 91% 60%;
+    --design-zone-border: 0 0% 100%;
+    
+    --tshirt-red: 0 84% 50%;
+    --tshirt-blue: 217 91% 50%;
+    --tshirt-black: 0 0% 10%;
+    --tshirt-white: 0 0% 98%;
+    --tshirt-gray: 220 9% 46%;
+    
+    --handle-bg: 217 91% 60%;
+    --handle-border: 0 0% 100%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 13% 10%;
+    --foreground: 220 14% 96%;
+
+    --card: 220 13% 14%;
+    --card-foreground: 220 14% 96%;
+
+    --popover: 220 13% 14%;
+    --popover-foreground: 220 14% 96%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 13% 20%;
+    --secondary-foreground: 220 14% 96%;
+
+    --muted: 220 13% 20%;
+    --muted-foreground: 220 9% 60%;
+
+    --accent: 217 91% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 20%;
+    --input: 220 13% 20%;
+    --ring: 217 91% 60%;
+    
+    --toolbar-bg: 220 13% 8%;
+    --toolbar-foreground: 220 14% 90%;
+    --toolbar-hover: 220 13% 18%;
+    --toolbar-active: 217 91% 50%;
+    
+    --panel-bg: 220 13% 14%;
+    --panel-border: 220 13% 20%;
+    
+    --canvas-bg: 220 13% 12%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  .design-zone-dashed {
+    border: 2px dashed hsl(var(--design-zone-border) / 0.6);
+    background: hsl(var(--design-zone-border) / 0.05);
+  }
+  
+  .toolbar-icon {
+    @apply flex flex-col items-center justify-center gap-1 p-3 rounded-lg transition-all duration-200 cursor-pointer;
+  }
+  
+  .toolbar-icon:hover {
+    background: hsl(var(--toolbar-hover));
+  }
+  
+  .toolbar-icon.active {
+    background: hsl(var(--toolbar-active));
+    color: hsl(var(--primary-foreground));
+  }
+  
+  .panel-section {
+    @apply border-b border-panel-border pb-4 mb-4;
+  }
+  
+  .panel-section:last-child {
+    @apply border-b-0 pb-0 mb-0;
+  }
+  
+  .control-button {
+    @apply flex items-center justify-center p-2 border border-border rounded-lg hover:bg-secondary transition-colors;
+  }
+  
+  .control-button.active {
+    @apply bg-primary text-primary-foreground border-primary;
+  }
+  
+  .view-thumbnail {
+    @apply border-2 border-transparent rounded-lg overflow-hidden cursor-pointer transition-all duration-200;
+  }
+  
+  .view-thumbnail.active {
+    @apply border-primary;
+  }
+  
+  .view-thumbnail:hover:not(.active) {
+    @apply border-muted-foreground/30;
+  }
+}
