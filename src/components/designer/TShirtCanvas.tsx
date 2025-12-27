@@ -29,7 +29,7 @@ export function TShirtCanvas({
   const canvasRef = useRef<HTMLDivElement>(null);
 
   const filteredElements = elements.filter((el) => el.view === view);
-  const zoneSize = { width: 250, height: 350 };
+  const zoneSize = { width: 260, height: 300 };
 
   const handleCanvasClick = useCallback((e: React.MouseEvent) => {
     if (e.target === e.currentTarget) onSelectElement(null);
@@ -57,7 +57,7 @@ export function TShirtCanvas({
               className={`relative transition-all duration-200 ${
                 isInteracting ? 'border border-dashed border-gray-400' : 'border border-transparent'
               }`}
-              style={{ width: zoneSize.width, height: zoneSize.height, pointerEvents: 'auto' }}
+              style={{ width: zoneSize.width, height: zoneSize.height, pointerEvents: 'auto'  ,   transform: 'translateY(-50px)'}}
             >
               {/* Conditional Labels */}
           {isInteracting && view === 'front' && (

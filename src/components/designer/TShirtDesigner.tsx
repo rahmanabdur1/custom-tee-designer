@@ -75,30 +75,33 @@ export function TShirtDesigner() {
         const width = img.width * ratio;
         const height = img.height * ratio;
         
-        // Center position in the design zone (zone starts at x:85, y:100, width:200, height:250)
-        const zoneX = 85;
-        const zoneY = 100;
-        const zoneWidth = 200;
-        const zoneHeight = 250;
-        const centerX = zoneX + (zoneWidth - width) / 2;
-        const centerY = zoneY + (zoneHeight - height) / 2;
-        
-        const newElement: DesignElement = {
-          id: `element-${Date.now()}`,
-          type: 'image',
-          src: event.target?.result as string,
-          x: centerX,
-          y: centerY,
-          width,
-          height,
-          originalWidth: img.width,
-          originalHeight: img.height,
-          rotation: 0,
-          colors,
-          view: currentView,
-          zone: 'center',
-        };
-        
+        // Center position in 
+       
+        const zoneWidth = 260;
+        const zoneHeight = 300;
+      const centerX = (zoneWidth - width) / 2;
+         const centerY = (zoneHeight - height) / 2;
+     
+
+
+
+
+     const newElement: DesignElement = {
+  id: `element-${Date.now()}`,
+  type: 'image',
+  src: event.target?.result as string,
+  x: centerX,
+  y: centerY,
+  width,
+  height,
+  originalWidth: img.width,
+  originalHeight: img.height,
+  rotation: 0,
+  colors,
+  view: currentView,
+  zone: 'center',
+};
+
         setElements((prev) => [...prev, newElement]);
         setSelectedElementId(newElement.id);
         toast.success('Image uploaded successfully!');
@@ -205,3 +208,5 @@ export function TShirtDesigner() {
     </div>
   );
 }
+
+
